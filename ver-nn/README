@@ -1,0 +1,10 @@
+This is a test version implemented according to Nearest Neighbor Rule.
+
+Usage:
+	$ python main.py TRAIN_SET.txt LETTER.txt
+
+Test:
+	$ sh test.sh
+
+
+	

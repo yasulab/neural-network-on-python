@@ -4,13 +4,6 @@
 import random
 import pickle
 
-train_data = [ 
-    [[0, 0], -1],
-    [[1, 0], -1],
-    [[0, 1], -1],
-    [[1, 1], +1]
-]
-
 LAST_DATA = "last.dat"
 
 class Data:
@@ -51,11 +44,7 @@ def save_data(filename, width, height, str):
     output.write(str)
     return
 
-if __name__ == '__main__':
-    data = load_data("a.txt")
-    #print data.width + data.height + data.char
-    #print data.text
-    
+def learn_basic(train_data):
     degree = len(train_data[0][0]) + 1 # 3: OK
     w = []
     for l in range(degree):
@@ -80,7 +69,7 @@ if __name__ == '__main__':
                 print c+1, # Round
                 print w,   # Weight
                 print px,  # Randomly picked input
-                print s,   # Answer of Sigma
+                print s,   # Sigma(w_i*x_i)
                 print t    # Correct Output
                 n_errors += 1
                 for i in range(len(px)):
@@ -89,11 +78,29 @@ if __name__ == '__main__':
         if n_errors == 0:
             print "convergence: %d" %  c
             break
-    
+    return w
+
+def learn_nn(train_data):
+    return
+
+if __name__ == '__main__':
+
+    train_data = [ 
+        [[0, 0], -1],
+        [[1, 0], +1],
+        [[0, 1], +1],
+        [[1, 1], -1]
+        ]
+
+    print "Round w_i x_i sigma(w_i*x_i) Correct_Answer"
+    w = learn_basic(train_data)
     print "w = " +  str(w)
+
+    """
     w_last = load_knowledge(LAST_DATA)
     print "last w = " + str(w_last)
     save_knowledge(LAST_DATA, w)
+    """
 
     """
     data_list = load_data("a.txt")

@@ -1,0 +1,12 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import sys
+
+if __name__ == '__main__':
+    argv_len = len(sys.argv)
+    if argv_len != 3:
+        print "Usage: python train.py TRAIN_DATA_FILENAME OUTPUT_FILENAME"
+        print        exit()
+    train_filename = sys.argv[1]
+    output_filename = sys.argv[2]

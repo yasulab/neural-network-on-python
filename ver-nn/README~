@@ -1,0 +1,4 @@
+This is a version 0 implemented according to Nearest Neighbor Rule.
+
+Usage:
+	$ python main.py TestSet.txt a.txt 

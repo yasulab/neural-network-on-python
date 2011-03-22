@@ -69,7 +69,7 @@ def learn_basic(train_data):
                 print c+1, # Round
                 print w,   # Weight
                 print px,  # Randomly picked input
-                print s,   # Answer of Sigma
+                print s,   # Sigma(w_i*x_i)
                 print t    # Correct Output
                 n_errors += 1
                 for i in range(len(px)):
@@ -87,13 +87,13 @@ if __name__ == '__main__':
 
     train_data = [ 
         [[0, 0], -1],
-        [[1, 0], -1],
-        [[0, 1], -1],
+        [[1, 0], +1],
+        [[0, 1], +1],
         [[1, 1], +1]
         ]
 
+    print "Round w_i x_i sigma(w_i*x_i) Correct_Answer"
     w = learn_basic(train_data)
-    
     print "w = " +  str(w)
 
     """

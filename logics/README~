@@ -1,0 +1,6 @@
+This foloder is a prototype of perceptrons with logics,
+such as AND and OR.
+
+Any logics can be run by typing following command.
+
+	$ python main.py
