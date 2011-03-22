@@ -1,0 +1,12 @@
+Everybody in the class should be able to add things to this directory.
+To make sure that others can edit what you've added, type
+
+  newgrp comp343
+  chgrp comp343 filename
+  chmod g+rw filename
+
+and then type
+
+  ls -l
+
+to be sure your change stuck.
