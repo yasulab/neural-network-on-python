@@ -2,17 +2,17 @@ This version separates into 2 scripts:
 - train.py
 - test.py
 
-train.py takes train data and write knowledge into a given filename.
+The train.py takes train data and write knowledge into a given filename.
 You can use it by typing:
 
     $ python train.py TRAIN_DATA_FILENAME OUTPUT_FILENAME
 
-test.py takes the knowledge data and test data file (e.g. q-ish.txt).
+The test.py takes the knowledge data and test data file (e.g. q-ish.txt).
 This program determines if a given test data is categorized into 'q'
 or not by using a given knowledge data. You can use it by typing:
 
     $ python test.py KNOWLEDGE_FILENAME TEST_DATA_FILENAME
 
-For easy testing, you can use the shell script of test.sh:
+For easy testing, you can use the shell script of easy-test.sh:
 
     $ sh easy-test.sh

@@ -1,0 +1,10 @@
+This is a version that tries to implement other algorithm, Nearest Neighbor Rule.
+
+Usage:
+	$ python main.py TRAIN_SET.txt LETTER.txt
+
+Test:
+	$ sh test.sh
+
+
+	

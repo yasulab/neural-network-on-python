@@ -29,7 +29,7 @@ def _get_weight(train_data_list, given_char):
     for l in range(size_of_vector):
         w.append(0)     # Create initial weight.
 
-    print "ROUND\ts(w*x)\tANSWER\tCORRECT?"
+    print "CNVRG\ts(w*x)\tANSWER\tCORRECT?"
     for c in range(TRAIN_TIMES): # c: How many inputs to learn
         # shuffle 
         random.shuffle(train_data_list)

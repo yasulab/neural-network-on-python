@@ -1,0 +1,12 @@
+This version does not separates into 2 scripts,
+(because pickle library does not support pickling my own class.)
+but caclculate backpropagation and test it in one command.
+
+The backprop.py takes train data and test data.
+So, you can use it by typing:
+
+    $ python backprop.py TRAIN_DATA_FILENAME TEST_DATA_FILENAME
+
+For easy testing, you can use the shell script of easy-test.sh:
+
+    $ sh easy-test.sh

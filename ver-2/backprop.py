@@ -9,12 +9,8 @@ import math
 
 # As THRESHOLD goes down, it takes more time to learn,
 # but you can get an answer more accurately.
-THRESHOLD = 0.15
+THRESHOLD = 0.2
 
-"""
-TODO: change this into winnter-take-all one.
-"""
-BASE_LETTER = 'q'
 
 # Back Propagation of Perceptron
 class NeuralNet(object):
@@ -106,6 +102,12 @@ class NeuralNet(object):
         return error
 
 def perceptron(train_data_list):
+    nn_list = []
+    for i in range(len(train_data_list)):
+        nn_list.append(_perceptron(train_data_list, train_data_list[i].char))
+    return nn_list
+
+def _perceptron(train_data_list, cmp_char):
     """
     # Sample input / output
     input = [
@@ -124,17 +126,17 @@ def perceptron(train_data_list):
     n_in_layer = train_data_list[0].size_of_vector()
     # n_hidden_layer = 5 # This is optional
     n_out_layer = len(train_data_list)
-    print n_in_layer, n_out_layer
+    # print n_in_layer, n_out_layer
     input = []
     output = []
     for train_data in train_data_list:
         input.append(train_data.vector)
-        if train_data.char == BASE_LETTER:
+        if train_data.char == cmp_char:
             output.append([1.0])
         else:
             output.append([0.0])
-    print output
-    print input
+    #print output
+    #print input
     #exit()
     # NeuralNet(in_layer, hidden_layer, out_layer, seed)
     nn = NeuralNet(n_in_layer, 5, 1, 10)
@@ -149,42 +151,40 @@ def perceptron(train_data_list):
     n_errors = 0
     while 1:
         err = 0.0
-        
         for (i, v) in zip(input, output):
             o = nn.compute(i)       #
             nn.back_propagation(v)   #
             err += nn.calc_error(v)  #
 
         n_errors += 1
-
         print n_errors , ":Error->", err
-
         if(err < THRESHOLD):
             print "Error < " + str(THRESHOLD)
             break
+    return (nn, cmp_char)
 
-    return nn
+def winner_take_all(nn_list, test_data):
+    score_list = []
+    char_list = []
+    for nn in nn_list:
+        score_list.append(get_score(nn[0], test_data))
+        char_list.append(nn[1])
+    print char_list
+    print "[",
+    for score in score_list:
+        print "%3f, " %score[0],
+    print "]"
 
-def test(nn, test_data_list):
+    win_score = max(score_list)
+    win_char = char_list[score_list.index(win_score)]
+    return (win_score[0], win_char)
+    
+def get_score(nn, test_data):
     """
     Final Test - check if the result is correct.
     """
-    input = []
-    output = []
-    for test_data in test_data_list:
-        input.append(test_data.vector)
-        if test_data.char == BASE_LETTER:
-            output.append([1.0])
-        else:
-            output.append([0.0])
-
-    i = 0
-    for inp, v in zip(input, output):
-        o = nn.compute(inp)
-        #print "Input->", inp,
-        print "The given letter ('%s') score is " %  test_data_list[i].char, o,
-        print "(Answer = ", v, ")"
-        i += 1
+    score = nn.compute(test_data.vector)
+    return score
         
 if __name__ == '__main__':
     argv_len = len(sys.argv)
@@ -195,22 +195,22 @@ if __name__ == '__main__':
     test_data_filename = sys.argv[2]
     train_data_list = load_data(train_data_filename)
     test_data_list = load_data(test_data_filename)
-    
-    nn = perceptron(train_data_list)
-    
+
+    nn_list = perceptron(train_data_list)
+    #exit()
     """
     TODO: Unable to pickle my own class.
     """
     # save_knowledge(nn, output_filename)
     # print "Learned knowledge was written in '%s'.\n" % output_filename
-    # print
 
-    test(nn, test_data_list)
-    
-
-
-
-
-
-
-
+    # First data appeared in the text will be tested.
+    win_score, win_char = winner_take_all(nn_list, test_data_list[0])
+    print "The given letter ('%s')is an example of '%s'. (Score=%3f)" % \
+          (test_data_filename, win_char, win_score)
+    if test_data_list[0].char == win_char:
+        print "SUCCESS"
+    else:
+        print "FAILED"
+    print
+            
