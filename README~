@@ -9,7 +9,6 @@ README:	       This is me.
 - ver-1:       demo for an algorithm of multi-valued perceptron.
 - ver-2:       demo for an algorithm of backpropagation.
 - ver-3:       demo for an algorithm of nearest neighbor rule.
-- stats:       scripts for measuring and comparing each algorithm.
 
 Each folder has a README and it tells you how to run
 and how to test the program there.

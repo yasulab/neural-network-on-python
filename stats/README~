@@ -1,0 +1,10 @@
+This folder contains shell scripts to calculate stats,
+such as computation time and num of guessed.
+
+You can see sample results run by the follwoing environment at './results/'.
+
+    MacBook Pro, Max OS X, COREi7, Memory 8GB
+    
+For time computation, you can run the script by typing:
+
+    $ sh time-cmp.sh

@@ -1,3 +1,5 @@
+This version demonstrates binary perceptron.
+
 This version separates into 2 scripts:
 - train.py
 - test.py
@@ -16,3 +18,51 @@ or not by using a given knowledge data. You can use it by typing:
 For easy testing, you can use the shell script of easy-test.sh:
 
     $ sh easy-test.sh
+
+For measuring time, you can use measure-time.sh:
+
+    $ sh measure-time.sh
+    This version demonstrates multi-valued perceptron.
+
+This version separates into 2 scripts:
+- train.py
+- test.py
+
+The train.py takes train data and write knowledge into a given filename.
+You can use it by typing:
+
+    $ python train.py TRAIN_DATA_FILENAME OUTPUT_FILENAME
+
+The test.py takes the knowledge data and test data file (e.g. q-ish.txt).
+This program returns most likely similar letters by using a given
+knowledge data. You can test it by typing:
+
+    $ python test.py KNOWLEDGE_FILENAME TEST_DATA_FILENAME
+
+For easy testing, you can use the shell script of easy-test.sh:
+
+    $ sh easy-test.shThis version does implement a perceptron with backpropagation.
+
+# Unlike others, this does not separate into 2 scripts,
+# because 'pickle' library does not support pickling my own class.
+
+
+The backprop.py takes train data and test data.
+So, you can use it by typing:
+
+    $ python backprop.py TRAIN_DATA_FILENAME TEST_DATA_FILENAME
+
+For easy testing, you can use the shell script of easy-test.sh:
+
+    $ sh easy-test.shThis version demonstrates other algorithm, Nearest Neighbor Rule.
+
+This version can be run by typing the following command:
+
+	$ python main.py TRAIN_DATA_FILENAME TEST_DATA_FILENAME
+
+For easy testing, you can use the following script:
+
+	$ sh test.sh
+
+
+	

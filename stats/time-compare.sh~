@@ -1,0 +1,41 @@
+#!/bin/sh
+echo ""
+echo "*********************"
+echo "***     START     ***"
+echo "*********************"
+echo ""
+cd ../ver-0
+echo "*********************"
+echo "* binary perceptron *"
+echo "*********************"
+time sh ../ver-0/easy-test.sh > /dev/null
+echo ""
+echo "**********************"
+echo "* Multi-V perceptron *"
+echo "**********************"
+echo ""
+cd ../ver-1
+time sh ../ver-1/easy-test.sh > ../stats/results/multi-valued.time
+echo ""
+echo "***********************"
+echo "* backprop perceptron *"
+echo "***********************"
+echo ""
+cd ../ver-2
+time sh ../ver-2/easy-test.sh > ../stats/results/backprop.time
+echo ""
+echo "*************************"
+echo "* Nearest Neighbor Rule *"
+echo "*************************"
+echo ""
+cd ../ver-3
+time sh ../ver-3/easy-test.sh > ../stats/results/nearest-neighbor.time
+echo ""
+echo "*********************"
+echo "***      END      ***"
+echo "*********************"
+echo ""
+cd ../stats/results
+echo "Binary, Multi-valued, Backpropagation, Nearest Neighbor" > result.cvs
+
+

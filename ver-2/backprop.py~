@@ -11,10 +11,6 @@ import math
 # but you can get an answer more accurately.
 THRESHOLD = 0.2
 
-"""
-TODO: change this into winnter-take-all one.
-"""
-BASE_LETTER = 'q'
 
 # Back Propagation of Perceptron
 class NeuralNet(object):
@@ -189,14 +185,6 @@ def get_score(nn, test_data):
     """
     score = nn.compute(test_data.vector)
     return score
-    
-    """
-    #print "Input->", inp
-    print "The given letter ('%s') score is " %  test_data_list[i].char,
-    print o,
-    print "(Answer = ", out, ")"
-    i += 1
-    """
         
 if __name__ == '__main__':
     argv_len = len(sys.argv)
@@ -220,9 +208,9 @@ if __name__ == '__main__':
     win_score, win_char = winner_take_all(nn_list, test_data_list[0])
     print "The given letter ('%s')is an example of '%s'. (Score=%3f)" % \
           (test_data_filename, win_char, win_score)
-    print
     if test_data_list[0].char == win_char:
         print "SUCCESS"
     else:
         print "FAILED"
+    print
             

@@ -157,9 +157,9 @@ def _perceptron(train_data_list, cmp_char):
             err += nn.calc_error(v)  #
 
         n_errors += 1
-        print n_errors , ":Error->", err
+        #print n_errors , ":Error->", err
         if(err < THRESHOLD):
-            print "Error < " + str(THRESHOLD)
+            #print "Error < " + str(THRESHOLD)
             break
     return (nn, cmp_char)
 
@@ -169,11 +169,13 @@ def winner_take_all(nn_list, test_data):
     for nn in nn_list:
         score_list.append(get_score(nn[0], test_data))
         char_list.append(nn[1])
+    """
     print char_list
     print "[",
     for score in score_list:
         print "%3f, " %score[0],
     print "]"
+    """
 
     win_score = max(score_list)
     win_char = char_list[score_list.index(win_score)]
@@ -208,9 +210,12 @@ if __name__ == '__main__':
     win_score, win_char = winner_take_all(nn_list, test_data_list[0])
     print "The given letter ('%s')is an example of '%s'. (Score=%3f)" % \
           (test_data_filename, win_char, win_score)
+
+    """
     if test_data_list[0].char == win_char:
         print "SUCCESS"
     else:
         print "FAILED"
     print
+    """
             

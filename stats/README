@@ -1,0 +1,6 @@
+This folder contains shell scripts to calculate stats,
+such as computation time and num of guessed.
+
+For measuring time computation, you can run the script by typing:
+
+    $ sh time-compare.sh

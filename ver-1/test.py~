@@ -42,6 +42,7 @@ if __name__ == '__main__':
     win_score,win_char = winner_take_all(data_list, test_data_list[0])
     print "The given letter ('%s')is an example of '%s'. (Score=%d)" % \
           (test_data_filename, win_char, win_score)
+    print
     
 
 

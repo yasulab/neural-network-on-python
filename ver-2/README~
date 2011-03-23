@@ -1,6 +1,8 @@
-This version does not separates into 2 scripts,
-(because pickle library does not support pickling my own class.)
-but caclculate backpropagation and test it in one command.
+This version does implement a perceptron with backpropagation.
+
+# Unlike others, this does not separate into 2 scripts,
+# because 'pickle' library does not support pickling my own class.
+
 
 The backprop.py takes train data and test data.
 So, you can use it by typing:

@@ -1,3 +1,5 @@
+This version demonstrates multi-valued perceptron.
+
 This version separates into 2 scripts:
 - train.py
 - test.py

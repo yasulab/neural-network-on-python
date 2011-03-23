@@ -8,5 +8,8 @@ For easy testing, you can use the following script:
 
 	$ sh test.sh
 
+For measuring time, you can use measure-time.sh:
+
+        $ sh measure-time.sh
 
 	

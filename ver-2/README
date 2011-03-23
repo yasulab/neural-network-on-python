@@ -12,3 +12,7 @@ So, you can use it by typing:
 For easy testing, you can use the shell script of easy-test.sh:
 
     $ sh easy-test.sh
+
+For measuring time, you can use measure-time.sh:
+
+    $ sh measure-time.sh
