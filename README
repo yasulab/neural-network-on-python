@@ -1,0 +1,14 @@
+This folder is a project for Project 2 in Artificial Intelligence class.
+
+This folder is composed of the following trees:
+README:	       This is me.
+- letter-set:  set of letters for training.
+- letter-each: set of letters for testing.
+- logics:      set of prototypes for testing algorithms.
+- ver-0:       demo for an algorithm of binary perceptron.
+- ver-1:       demo for an algorithm of multi-valued perceptron.
+- ver-2:       demo for an algorithm of backpropagation.
+- ver-3:       demo for an algorithm of nearest neighbor rule.
+
+Each folder has a README and it tells you how to run
+and how to test the program there.

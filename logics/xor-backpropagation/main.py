@@ -1,13 +1,16 @@
 #!/usr/bin/env python 
 # -*- coding: utf-8 -*-
 
-import math
-import random
 import sys
+import random
+import pickle
+from my_io import *
+import math
 
 # As THRESHOLD goes down, it takes more time to learn,
 # but you can get an answer more accurately.
 THRESHOLD = 0.05
+
 
 # Back Propagation of Perceptron
 class NeuralNet(object):
@@ -98,21 +101,7 @@ class NeuralNet(object):
         error *= 0.5
         return error
 
-def perceptron():
-    input = [
-        [1, 1],
-        [1, 0],
-        [0, 1],
-        [0, 0]
-        ]
-    output = [
-        [0.0],
-        [1.0],
-        [1.0],
-        [0.0]
-        ]
-
-    
+def perceptron(input, output):
     # NeuralNet(in_layer, hidden_layer, out_layer, seed)
     nn = NeuralNet(2, 5, 1, 10)
     """
@@ -126,29 +115,57 @@ def perceptron():
     n_errors = 0
     while 1:
         err = 0.0
-        
         for (i, v) in zip(input, output):
             o = nn.compute(i)       #
             nn.back_propagation(v)   #
             err += nn.calc_error(v)  #
 
         n_errors += 1
-
         print n_errors , ":Error->", err
-
         if(err < THRESHOLD):
             print "Error < " + str(THRESHOLD)
             break
-        
     for i, v in zip(input, output):
         o = nn.compute(i)
         print "Input->", i,  "Output->", o, "Answer->", v
-            
-if __name__ == '__main__':
-    argv_len = len(sys.argv)
-    if argv_len != 2:
-        print "Usage: python main.py TRAIN_DATA_FILENAME"
-        exit()
-    train_filename = sys.argv[1]
+
+def winner_take_all(nn_list, test_data):
+    score_list = []
+    char_list = []
+    for nn in nn_list:
+        score_list.append(get_score(nn[0], test_data))
+        char_list.append(nn[1])
+    print char_list
+    print "[",
+    for score in score_list:
+        print "%3f, " %score[0],
+    print "]"
+
+    win_score = max(score_list)
+    win_char = char_list[score_list.index(win_score)]
+    return (win_score[0], win_char)
     
-    perceptron()
+def get_score(nn, test_data):
+    """
+    Final Test - check if the result is correct.
+    """
+    score = nn.compute(test_data.vector)
+    return score
+        
+if __name__ == '__main__':
+        # Sample input / output
+    input = [
+        [1, 1],
+        [1, 0],
+        [0, 1],
+        [0, 0]
+        ]
+    output = [
+        [0.0],
+        [1.0],
+        [1.0],
+        [0.0]
+        ]
+
+    perceptron(input, output)
+    #exit()

@@ -36,7 +36,7 @@ def load_data(filename):
     return data_list
 
 # Nearest Neighbor Rule
-def learn_nn(train_data_list, test_data_list):
+def learn_nn(train_data_list, test_data_list, filename):
     for i,test in enumerate(test_data_list):
         d_list = []
         for train in train_data_list:
@@ -46,8 +46,8 @@ def learn_nn(train_data_list, test_data_list):
             #print "d = %d" % d
             d_list.append(d)
         index = d_list.index(min(d_list))
-        print "Test data[%d] is an example of %s. [Answer='%s']" % \
-              (index, train_data_list[index].char, test.char),
+        print "The given letter ('%s') is an example of '%s'. [Answer='%s']" % \
+              (filename, train_data_list[index].char, test.char),
     return
 
 def print_data(data):
@@ -75,6 +75,6 @@ if __name__ == '__main__':
     test_filename = sys.argv[2]
     train_data_list = load_data(train_filename)
     test_data_list = load_data(test_filename)
-    learn_nn(train_data_list, test_data_list)
+    learn_nn(train_data_list, test_data_list, test_filename)
     
 

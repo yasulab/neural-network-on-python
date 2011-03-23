@@ -1,9 +1,11 @@
-This is a version that tries to implement other algorithm, Nearest Neighbor Rule.
+This version demonstrates other algorithm, Nearest Neighbor Rule.
 
-Usage:
-	$ python main.py TRAIN_SET.txt LETTER.txt
+This version can be run by typing the following command:
 
-Test:
+	$ python main.py TRAIN_DATA_FILENAME TEST_DATA_FILENAME
+
+For easy testing, you can use the following script:
+
 	$ sh test.sh
 
 
